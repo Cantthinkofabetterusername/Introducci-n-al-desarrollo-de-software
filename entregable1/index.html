@@ -39,7 +39,8 @@
         </div>
     </div>
     <h2>Lenguajes que sé</h2>
-    <ul class="list-group mb-4">
+    <input type="text" class="form-control mb-3" placeholder="Buscar habilidad..." onkeyup="filtrarHabilidades()" id="buscadorHabilidades">
+    <ul class="list-group mb-4" id="lista-habilidades">
         <li class="list-group-item">Python</li>
         <li class="list-group-item">C++</li>
         <li class="list-group-item">C</li>
@@ -150,6 +151,18 @@
         } else {
             contacto.style.display = "none";
             boton.textContent = "Mostrar información de contacto";
+        }
+    }
+</script>
+<script>
+    function filtrarHabilidades() {
+        const input = document.getElementById("buscadorHabilidades");
+        const filtro = input.value.toLowerCase();
+        const lista = document.getElementById("lista-habilidades");
+        const items = lista.getElementsByTagName("li");
+        for (let i = 0; i < items.length; i++) {
+            const texto = items[i].textContent.toLowerCase();
+            items[i].style.display = texto.includes(filtro) ? "" : "none";
         }
     }
 </script>
