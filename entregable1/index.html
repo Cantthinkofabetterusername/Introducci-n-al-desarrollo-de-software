@@ -9,6 +9,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
         <a class="navbar-brand" href="#">Mi CV</a>
+        <button class="btn btn-outline-light ms-auto" onclick="toggleModo()" id="modoBtn">
+        Modo oscuro
+        </button>
     </div>
 </nav>
 <div class="container">
@@ -112,6 +115,24 @@
             seccion.style.display = "none";
             boton.textContent = "Mostrar experiencia laboral";
         }
+    }
+</script>
+<script>
+    function toggleModo() {
+        const body = document.body;
+        const navbar = document.querySelector(".navbar");
+        const btn = document.getElementById("modoBtn");
+        body.classList.toggle("bg-light");
+        body.classList.toggle("bg-dark");
+        body.classList.toggle("text-light");
+        navbar.classList.toggle("navbar-dark");
+        navbar.classList.toggle("navbar-light");
+        navbar.classList.toggle("bg-dark");
+        navbar.classList.toggle("bg-light");
+        const modoOscuroActivo = body.classList.contains("bg-dark");
+        btn.textContent = modoOscuroActivo
+            ? "Modo claro"
+            : "Modo oscuro";
     }
 </script>
 </body>
