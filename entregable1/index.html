@@ -23,13 +23,18 @@
                  width="180">
             <h1 class="card-title">Pedro Linares</h1>
             <h4 id="saludo" class="text-muted mt-2"></h4>
-            <p>
-                <a href="mailto:pedro.linares@ufm.edu" class="me-3">Contáctame</a>
-                <a href="https://github.com/Cantthinkofabetterusername" target="_blank" class="me-3">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            </p>
+            <div id="contacto">
+                <p>
+                    <a href="mailto:pedro.linares@ufm.edu" class="me-3">Contáctame</a>
+                    <a href="https://github.com/Cantthinkofabetterusername" target="_blank" class="me-3">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </p>
+            </div>
             <button class="btn btn-primary mt-2">
                 Descargar como PDF
+            </button>
+            <button class="btn btn-outline-primary mt-2" onclick="toggleContacto()">
+            Ocultar información de contacto
             </button>
         </div>
     </div>
@@ -133,6 +138,19 @@
         btn.textContent = modoOscuroActivo
             ? "Modo claro"
             : "Modo oscuro";
+    }
+</script>
+<script>
+    function toggleContacto() {
+        const contacto = document.getElementById("contacto");
+        const boton = event.target;
+        if (contacto.style.display === "none") {
+            contacto.style.display = "block";
+            boton.textContent = "Ocultar información de contacto";
+        } else {
+            contacto.style.display = "none";
+            boton.textContent = "Mostrar información de contacto";
+        }
     }
 </script>
 </body>
