@@ -61,6 +61,9 @@
         </table>
     </section>
     <section id="experiencia">
+        <button class="btn btn-outline-secondary mb-3" onclick="toggleExperiencia()">
+        Ocultar experiencia laboral
+        </button>
         <h2>Experiencia Laboral</h2>
         <table class="table table-hover table-bordered">
             <thead class="table-dark">
@@ -97,6 +100,19 @@
         saludo = "Buenas noches";
     }
     saludoElemento.textContent = saludo;
+</script>
+<script>
+    function toggleExperiencia() {
+        const seccion = document.getElementById("experiencia");
+        const boton = event.target;
+        if (seccion.style.display === "none") {
+            seccion.style.display = "block";
+            boton.textContent = "Ocultar experiencia laboral";
+        } else {
+            seccion.style.display = "none";
+            boton.textContent = "Mostrar experiencia laboral";
+        }
+    }
 </script>
 </body>
 </html>
