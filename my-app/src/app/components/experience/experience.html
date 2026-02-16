@@ -1,0 +1,27 @@
+<section id="experiencia">
+    <button class="btn btn-outline-secondary mb-3" (click)="toggleExperiencia()">
+    Ocultar experiencia laboral
+    </button>
+    <h2>Experiencia Laboral</h2>
+    <table *ngIf="mostrarExperiencia" class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Periodo</th>
+                <th>Empresa</th>
+                <th>Puesto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2028 - 2032</td>
+                <td>Apple</td>
+                <td>Ingeniero de Hardware</td>
+            </tr>
+            <tr>
+                <td>2032 - Presente</td>
+                <td>Nvidia</td>
+                <td>Diseñador de Hardware Gráfico</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

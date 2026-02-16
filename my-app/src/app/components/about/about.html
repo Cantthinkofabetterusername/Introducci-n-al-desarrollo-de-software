@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <img src="img/pedroperfil.png" 
+                 alt="Foto de Pedro"
+                 class="rounded-circle border border-3 border-dark mb-3"
+                 width="180">
+            <h1 class="card-title">Pedro Linares</h1>
+            <h4 id="saludo" class="text-muted mt-2"></h4>
+            <div id="contacto" *ngIf="mostrarContacto">
+                <p>
+                    <a href="mailto:pedro.linares@ufm.edu" class="me-3">Contáctame</a>
+                    <a href="https://github.com/Cantthinkofabetterusername" target="_blank" class="me-3">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </p>
+            </div>
+            <button class="btn btn-primary mt-2">
+                Descargar como PDF
+            </button>
+            <button class="btn btn-outline-primary mt-2" (click)="toggleContacto()">
+            Ocultar información de contacto
+            </button>
+        </div>
+    </div>

@@ -1,0 +1,79 @@
+<h2>Lenguajes que sé</h2>
+<input type="text"
+       class="form-control mb-3"
+       placeholder="Buscar habilidad..."
+       [(ngModel)]="filtro">
+       <li class="list-group-item"
+       *ngFor="let habilidad of habilidades"
+       [hidden]="!habilidad.toLowerCase().includes(filtro.toLowerCase())">
+     {{ habilidad }}
+   </li>
+<script>
+const saludoElemento = document.getElementById("saludo");
+const hora = new Date().getHours();
+let saludo;
+if (hora >= 5 && hora < 12) {
+    saludo = "Buenos días";
+} else if (hora >= 12 && hora < 18) {
+    saludo = "Buenas tardes";
+} else {
+    saludo = "Buenas noches";
+}
+saludoElemento.textContent = saludo;
+</script>
+<script>
+function toggleExperiencia() {
+    const seccion = document.getElementById("experiencia");
+    const boton = event.target;
+    if (seccion.style.display === "none") {
+        seccion.style.display = "block";
+        boton.textContent = "Ocultar experiencia laboral";
+    } else {
+        seccion.style.display = "none";
+        boton.textContent = "Mostrar experiencia laboral";
+    }
+}
+</script>
+<script>
+function toggleModo() {
+    const body = document.body;
+    const navbar = document.querySelector(".navbar");
+    const btn = document.getElementById("modoBtn");
+    body.classList.toggle("bg-light");
+    body.classList.toggle("bg-dark");
+    body.classList.toggle("text-light");
+    navbar.classList.toggle("navbar-dark");
+    navbar.classList.toggle("navbar-light");
+    navbar.classList.toggle("bg-dark");
+    navbar.classList.toggle("bg-light");
+    const modoOscuroActivo = body.classList.contains("bg-dark");
+    btn.textContent = modoOscuroActivo
+        ? "Modo claro"
+        : "Modo oscuro";
+}
+</script>
+<script>
+function toggleContacto() {
+    const contacto = document.getElementById("contacto");
+    const boton = event.target;
+    if (contacto.style.display === "none") {
+        contacto.style.display = "block";
+        boton.textContent = "Ocultar información de contacto";
+    } else {
+        contacto.style.display = "none";
+        boton.textContent = "Mostrar información de contacto";
+    }
+}
+</script>
+<script>
+function filtrarHabilidades() {
+    const input = document.getElementById("buscadorHabilidades");
+    const filtro = input.value.toLowerCase();
+    const lista = document.getElementById("lista-habilidades");
+    const items = lista.getElementsByTagName("li");
+    for (let i = 0; i < items.length; i++) {
+        const texto = items[i].textContent.toLowerCase();
+        items[i].style.display = texto.includes(filtro) ? "" : "none";
+    }
+}
+</script>
