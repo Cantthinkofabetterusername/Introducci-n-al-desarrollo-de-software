@@ -1,0 +1,177 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="#">Mi CV</a>
+        <button class="btn btn-outline-light ms-auto" onclick="toggleModo()" id="modoBtn">
+        Modo oscuro
+        </button>
+    </div>
+</nav>
+<div class="container">
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <img src="img/pedroperfil.png" 
+                 alt="Foto de Pedro"
+                 class="rounded-circle border border-3 border-dark mb-3"
+                 width="180">
+            <h1 class="card-title">Pedro Linares</h1>
+            <h4 id="saludo" class="text-muted mt-2"></h4>
+            <div id="contacto">
+                <p>
+                    <a href="mailto:pedro.linares@ufm.edu" class="me-3">Contáctame</a>
+                    <a href="https://github.com/Cantthinkofabetterusername" target="_blank" class="me-3">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </p>
+            </div>
+            <button class="btn btn-primary mt-2">
+                Descargar como PDF
+            </button>
+            <button class="btn btn-outline-primary mt-2" onclick="toggleContacto()">
+            Ocultar información de contacto
+            </button>
+        </div>
+    </div>
+    <h2>Lenguajes que sé</h2>
+    <input type="text" class="form-control mb-3" placeholder="Buscar habilidad..." onkeyup="filtrarHabilidades()" id="buscadorHabilidades">
+    <ul class="list-group mb-4" id="lista-habilidades">
+        <li class="list-group-item">Python</li>
+        <li class="list-group-item">C++</li>
+        <li class="list-group-item">C</li>
+    </ul>
+    <section id="educacion" class="mb-4">
+        <h2>Educación</h2>
+      
+        <table border="1">
+          <caption>Formación académica</caption>
+          <thead>
+            <tr>
+              <th>Año</th>
+              <th>Institución</th>
+              <th>Título obtenido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024</td>
+              <td>Montano College</td>
+              <td>Título de Bachiller en Ciencias y Letras</td>
+            </tr>
+            <tr>
+              <td>2028</td>
+              <td>Universidad Francisco Marroquín</td>
+              <td>Licenciatura en Ingeniería en Computer Science</td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+    <section id="experiencia">
+        <button class="btn btn-outline-secondary mb-3" onclick="toggleExperiencia()">
+        Ocultar experiencia laboral
+        </button>
+        <h2>Experiencia Laboral</h2>
+      
+        <table border="1">
+            <caption>Resumen de experiencia laboral</caption>
+          <thead>
+            <tr>
+              <th scope="col">Periodo</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Puesto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2028 - 2032</td>
+              <td>Apple</td>
+              <td>Ingeniero de Hardware</td>
+            </tr>
+            <tr>
+              <td>2032 - Presente</td>
+              <td>Nvidia</td>
+              <td>Diseñados de Hardware Gráfico</td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+</div>
+<script>
+    const saludoElemento = document.getElementById("saludo");
+    const hora = new Date().getHours();
+    let saludo;
+    if (hora >= 5 && hora < 12) {
+        saludo = "Buenos días";
+    } else if (hora >= 12 && hora < 18) {
+        saludo = "Buenas tardes";
+    } else {
+        saludo = "Buenas noches";
+    }
+    saludoElemento.textContent = saludo;
+</script>
+<script>
+    function toggleExperiencia() {
+        const seccion = document.getElementById("experiencia");
+        const boton = event.target;
+        if (seccion.style.display === "none") {
+            seccion.style.display = "block";
+            boton.textContent = "Ocultar experiencia laboral";
+        } else {
+            seccion.style.display = "none";
+            boton.textContent = "Mostrar experiencia laboral";
+        }
+    }
+</script>
+<script>
+    function toggleModo() {
+        const body = document.body;
+        const navbar = document.querySelector(".navbar");
+        const btn = document.getElementById("modoBtn");
+        body.classList.toggle("bg-light");
+        body.classList.toggle("bg-dark");
+        body.classList.toggle("text-light");
+        navbar.classList.toggle("navbar-dark");
+        navbar.classList.toggle("navbar-light");
+        navbar.classList.toggle("bg-dark");
+        navbar.classList.toggle("bg-light");
+        const modoOscuroActivo = body.classList.contains("bg-dark");
+        btn.textContent = modoOscuroActivo
+            ? "Modo claro"
+            : "Modo oscuro";
+    }
+</script>
+<script>
+    function toggleContacto() {
+        const contacto = document.getElementById("contacto");
+        const boton = event.target;
+        if (contacto.style.display === "none") {
+            contacto.style.display = "block";
+            boton.textContent = "Ocultar información de contacto";
+        } else {
+            contacto.style.display = "none";
+            boton.textContent = "Mostrar información de contacto";
+        }
+    }
+</script>
+<script>
+    function filtrarHabilidades() {
+        const input = document.getElementById("buscadorHabilidades");
+        const filtro = input.value.toLowerCase();
+        const lista = document.getElementById("lista-habilidades");
+        const items = lista.getElementsByTagName("li");
+        for (let i = 0; i < items.length; i++) {
+            const texto = items[i].textContent.toLowerCase();
+            items[i].style.display = texto.includes(filtro) ? "" : "none";
+        }
+    }
+</script>
+</body>
+</html>
+>>>>>>> dev
